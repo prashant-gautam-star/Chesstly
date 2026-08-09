@@ -2,11 +2,15 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import chess
 import chess.engine
+import os
 
 app = Flask(__name__)
 CORS(app)
 
-STOCKFISH_PATH = "stockfish/stockfish-windows-x86-64-avx2.exe"
+if os.name == "nt":
+    STOCKFISH_PATH = "stockfish/stockfish-windows-x86-64-avx2.exe"
+else:
+    STOCKFISH_PATH = "stockfish"
 
 
 # =========================================================
