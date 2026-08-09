@@ -224,7 +224,7 @@ function ChessApp() {
 
       const response =
         await fetch(
-          "http://127.0.0.1:5000/api/bot-move",
+          "https://chesstly.onrender.com/api/bot-move",
           {
             method: "POST",
 
@@ -1985,4 +1985,4 @@ function App() {
 }
 
 
-export default App;
+export default App; 
