@@ -657,67 +657,253 @@ function ChessApp() {
   // HOME SCREEN
   // =======================================================
 
-  if (
-    screen === "home"
-  ) {
+if (screen === "home") {
+  return (
+    <div className="home-page">
 
-    return (
+      {/* ================= NAVBAR ================= */}
+      <nav className="home-navbar">
 
-      <div style={styles.home}>
-
-        <h1
-          style={{
-            ...styles.logo,
-            cursor: "pointer",
-            userSelect: "none",
-          }}
+        <div
+          className="home-logo"
           onClick={goHome}
           title="Go to Home"
         >
-          Chesstly
-        </h1>
+          ♞ <span>CHESSTLY</span>
+        </div>
+
+        <div className="home-nav-links">
+
+          <button className="home-nav-active">
+            HOME
+          </button>
+
+          <button
+            className="home-nav-button"
+            onClick={openAnalysisBoard}
+          >
+            ANALYSIS BOARD ♔
+          </button>
+
+          <button
+            className="home-nav-button"
+            onClick={openPlayBot}
+          >
+            PLAY BOT ♞
+          </button>
+
+          {/* Non-functional */}
+          <button className="home-nav-button">
+            TRAINING ♞
+          </button>
+
+          <button className="home-nav-button">
+            COMMUNITY ♟
+          </button>
+
+          <button className="home-nav-button">
+            NEWS
+          </button>
+
+          <button className="home-nav-button">
+            SIGN IN
+          </button>
+
+          <button className="join-free-button">
+            JOIN FREE
+          </button>
+
+        </div>
+      </nav>
 
 
-        <p style={styles.tagline}>
-          Analyze. Learn. Improve.
-        </p>
+      {/* ================= HERO ================= */}
+      <section className="home-hero">
+
+        <div className="hero-chess-pieces">
+          ♛ ♚
+        </div>
+
+        <div className="hero-content">
+
+          <h1>
+            Chesstly · Elevate Your Game.
+          </h1>
+
+          <p>
+            The Ultimate Destination for Aspiring Grandmasters
+            and Casual Players.
+          </p>
+
+          <button
+            className="hero-start-button"
+            onClick={openPlayBot}
+          >
+            GET STARTED NOW ♟
+          </button>
+
+        </div>
+
+        <div className="hero-board-decoration">
+          {Array.from({ length: 32 }).map((_, index) => (
+            <div
+              key={index}
+              className={
+                index % 2 === 0
+                  ? "board-square light-square"
+                  : "board-square dark-square"
+              }
+            />
+          ))}
+        </div>
+
+      </section>
 
 
-        {/* ANALYSIS BOARD */}
+      {/* ================= FEATURES ================= */}
+      <section className="home-features">
 
-        <button
-          style={styles.mainButton}
-          onClick={
-            openAnalysisBoard
-          }
-        >
-          Analysis Board
-        </button>
+        {/* ANALYSIS */}
+        <div className="feature-card">
+
+<div className="feature-image">
+  <img
+    src="/images/analysis-board.png"
+    alt="Analysis Board"
+  />
+</div>
+
+          <h2>
+            Analysis Board ♔
+          </h2>
+
+          <p>
+            Explore any game, review strategies,
+            and analyze your moves with powerful
+            engine evaluation.
+          </p>
+
+          <button
+            className="feature-button"
+            onClick={openAnalysisBoard}
+          >
+            EXPLORE BOARD
+          </button>
+
+        </div>
 
 
         {/* PLAY BOT */}
+       {/* PLAY BOT */}
+<div className="feature-card">
 
-        <button
-          style={styles.mainButton}
-          onClick={
-            openPlayBot
-          }
-        >
-          Play Bot
-        </button>
+  <div className="feature-image">
+    <img
+      src="/images/play-bot.jpg"
+      alt="Play Bot"
+    />
+  </div>
+
+  <h2>
+    Play Bot ♞
+  </h2>
+
+  <p>
+    Challenge custom AI opponents of
+    different skill levels and improve
+    your chess.
+  </p>
+
+  <button
+    className="feature-button"
+    onClick={openPlayBot}
+  >
+    START GAME
+  </button>
+
+</div>
 
 
-        {/* TRAINING */}
+        {/* TRAINING — NON FUNCTIONAL */}
+        <div className="feature-card">
 
-        <button
-          style={styles.mainButton}
-        >
-          Training
-        </button>
+          <div className="feature-image training-image">
+            ♜
+          </div>
 
-      </div>
-    );
-  }
+          <h2>
+            Training ♞
+          </h2>
+
+          <p>
+            Solve puzzles, learn tactics, study
+            openings, and improve your game.
+          </p>
+
+          <button className="feature-button">
+            START TRAINING
+          </button>
+
+        </div>
+
+      </section>
+
+
+      {/* ================= RECENT UPDATES ================= */}
+      <section className="recent-updates">
+
+        <h2>
+          Recent Updates
+        </h2>
+
+        <div className="updates-grid">
+
+          <div className="update-card">
+
+            <div className="update-icon">
+              ♟
+            </div>
+
+            <div>
+              <h3>
+                Deep Game Analysis
+              </h3>
+
+              <p>
+                Review your games and discover
+                mistakes, inaccuracies and strong moves.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div className="update-card">
+
+            <div className="update-icon">
+              ♛
+            </div>
+
+            <div>
+              <h3>
+                Challenge the AI
+              </h3>
+
+              <p>
+                Play against Chesstly's AI opponents
+                across multiple difficulty levels.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+  );
+}
 
 
   // =======================================================
